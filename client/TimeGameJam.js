@@ -26,28 +26,24 @@ function create() //Create world objects
 {
   this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
-  this.game.input.keyboard.addKeyCapture([
-        Phaser.Keyboard.LEFT,
-        Phaser.Keyboard.RIGHT,
-        Phaser.Keyboard.UP,
-        Phaser.Keyboard.DOWN
-    ]);
-
   enemyTankLayer = this.game.add.group();
   projectileLayer = this.game.add.group();
   uiLayer = this.game.add.group();
   wallsLayer = this.game.add.group();
   backgroundLayer = this.game.add.group();
 
+  //Add enemy tank object
   this.enemyTank = this.game.add.sprite(300, 100, 'EnemyTankSprite');
   this.enemyTank.anchor.setTo(0.5, 0.5);
   this.game.physics.enable(this.enemyTank, Phaser.Physics.ARCADE);
 
+  //Add projectile object
   this.projectile = this.game.add.sprite(baseWidth/2, baseHeight, 'BulletSprite');
   this.projectile.angle = -90;
   this.projectile.anchor.setTo(0.5, 0.5);
   this.game.physics.enable(this.projectile, Phaser.Physics.ARCADE);
 
+  //Add player object
   this.playerTank = this.game.add.sprite(baseWidth/2, baseHeight, 'PlayerBarrelSprite');
   this.playerTank.anchor.setTo(0.5, 1.0);
   this.game.physics.enable(this.playerTank, Phaser.Physics.ARCADE);
@@ -61,8 +57,17 @@ function update()
 {
   this.enemyTank.body.velocity.x = 100;
 
-  if (this.leftInputIsActive())
-  {
-    
+  if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) { this.playerTank.body.velocity.x -= 40; }
+  else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) { this.playerTank.body.velocity.x += 40; }
+  else {
+    //Drastically slow player turning if they are not currently turning (Give a clunky feel)
+    if (this.playerTank.body.velocity.x > 0) { this.playerTank.body.velocity.x -= 2.5; }
+    else if (this.playerTank.body.velocity.x < 0) { this.playerTank.body.velocity.x += 2.5; }
   }
+
+  //Limit player turning velocity
+  if (this.playerTank.body.velocity.x > 122) { this.playerTank.body.velocity.x = 122; }
+  else if ( this.playerTank.body.velocity.x < -122) { this.playerTank.body.velocity.x = -122; }
+
+
 }
