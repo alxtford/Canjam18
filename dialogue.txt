@@ -1,0 +1,30 @@
+TUTORIAL:
+Attention recruit! They've put you in charge of piloting this beauty of a vehicle, and it's my job to make sure that you don't screw it up.
+Move the joy stick left and right to aim and hit that button to fire. If your enemy explodes, you know you've done good.
+When you take enough damage, you'll explode. Be ready to flick that switch to eject.
+
+IN-GAME:
+--enemy spawn
+Enemy spotted
+The enemy is coming!
+More cannon fodder
+An enemy approaches
+--kill
+Nice shot!
+Woah, his limbs are all over the place.
+A meal for the worms
+It's raining blood... just how I like it.
+One more down...
+--low health
+You're almost a dead man, be careful!
+This vehicle can't take much more.
+Ready to eject?
+
+--enemy
+Eat shit and die
+I hope you get sat on
+I am coming to kill you, friend
+EAT THIS PUNK!
+I hope you wrote your parents a letter because otehrwise they're gonna be pretty damn sad
+One plus one equals you dying
+Time to die
