@@ -25,7 +25,8 @@ function preload() //Load Assets
   this.game.load.image('EnemyTankSprite', 'client/assets/EnemyTank.png');
   this.game.load.image('PlayerBarrelSprite', 'client/assets/PlayerBarrel.png');
   this.game.load.image('BulletSprite', 'client/assets/Bullet.png');
-  this.game.load.image('BackgroundSprite', 'client/assets/bg_placeholder.png');
+  this.game.load.image('BackgroundSprite', 'client/assets/background.png');
+  this.game.load.spritesheet('Enemy', 'client/assets/newenemy.png', 192, 192, 8);
 
   //audio
   this.game.load.audio('Eject',  'client/assets/sound/sfx/ascend.wav');
@@ -65,6 +66,9 @@ function create() //Create world objects
   this.playerTank = this.game.add.sprite(baseWidth/2, baseHeight, 'PlayerBarrelSprite');
   this.playerTank.anchor.setTo(0.5, 1.0);
   this.game.physics.enable(this.playerTank, Phaser.Physics.ARCADE);
+
+  //test enemy NUUT
+  testEnemy = this.game.add.sprite(400, 400, 'Enemy');
 
   //create enemies
   for (var i = 0; i < 11; i++) { //create 10 enemies
@@ -107,7 +111,12 @@ function update()
 
   for (var i = 0; i < 11; i++) { enemyObjs[i].scale.set(enemyScaleMod, enemyScaleMod); }
 
- enemyScaleMod += 0.001;
+  // Random Attack event!
+  attackRandNum = Math.floor(Math.random() * 100);
+  //Random Enemy Attack!
+  if(attackRandNum > 98){console.log("ATTACK POSSIBLE"); attackingEnemy = enemyObjs[Math.floor(Math.random() * enemyObjs.length)]}
+  else{attackflag = false;}
+  enemyScaleMod += 0.001;
 
 
   if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) { this.game.camera.x -= 40; this.playerTank.body.velocity.x -= 40; }
@@ -122,17 +131,18 @@ function update()
   if (this.playerTank.body.velocity.x > 122) { this.playerTank.body.velocity.x = 122; }
   else if ( this.playerTank.body.velocity.x < -122) { this.playerTank.body.velocity.x = -122; }
 
-  if (cursors.left.isDown) { this.game.camera.x -= 4; }
-  else if (cursors.right.isDown) { this.game.camera.x += 4; }
-  console.log(cursors.left.isDown);
+  //console.log(cursors.left.isDown);
 
 /*  if (this.game.input.keyboardisDown(Phaser.Keyboard.SPACE)) {
     shoot();
   }*/
 
+  // CHOSEN ENEMY SHOOT!
+  enemyShoot(attackingEnemy);
+
   textUpdate();
 
-  screenFilter.update(canjam.input.mousePointer);
+  screenFilter.update(playerTank);
   spriteScreen.moveUp();
 }
 
@@ -145,6 +155,11 @@ function shoot() { //player shooting
   console.log("Shot fired!");
 
 
+}
+
+function enemyShoot(attackingEnemy)
+{
+    // TODO
 }
 
 function textCreate()

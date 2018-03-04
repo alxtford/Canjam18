@@ -33,6 +33,12 @@ var projSpeed = 500;
 var projDelay = 100;
 var projNum = 20;
 
+//Generate random number whether to attack or shoot
+var attackFlag = false;
+var attackRandNum;
+//Enemy Attacking
+var attackingEnemy;
+
 //World related
 var worldBounds;
 var enemyTankLayer;
@@ -42,6 +48,8 @@ var wallsLayer;
 
 var backgroundObj;
 
+var testEnemy;
+
 //Gameplay related
 var gameOver;
 var score = 0;
@@ -49,3 +57,4 @@ var scoreText;
 
 //Shader
 var screenFilter;
+var spriteScreen;
