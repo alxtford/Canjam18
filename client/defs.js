@@ -1,5 +1,7 @@
-var baseWidth = 800;
-var baseHeight = 600;
+var baseWidth = 256;
+var baseHeight = 192;
+var worldBoundx = 1920;
+var worldBoundy = 1200;
 var scale = 3;
 
 WebFontConfig = {
@@ -9,9 +11,12 @@ WebFontConfig = {
   }
 };
 
-var style = {font: "28px VT323", fill: "#fff", tabs: 150};
+var style = {font: "14px VT323", fill: "#fff", tabs: 150};
 
-var cursors;
+//Gamepad thangs
+var pad;
+var buttonDPadLeft;
+var buttonDPadRight;
 
 //Player related
 var playerTank;
@@ -23,7 +28,7 @@ var playerRotationSpeed = 90;
 
 //Enemy related
 var enemyObjs = [];
-var enemyScaleMod = 0.01;
+var enemyScaleMod = [];
 var enemyProj = [];
 var enemyTank;
 var direction = [];
@@ -49,12 +54,16 @@ var wallsLayer;
 var backgroundObj;
 
 var testEnemy;
+var eShoot;
 
 //Gameplay related
 var gameOver;
 var score = 0;
 var scoreText;
+var noInput = true;
+var gameStart = false;
 
 //Shader
 var screenFilter;
+var glitchFilter;
 var spriteScreen;
