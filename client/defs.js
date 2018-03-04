@@ -15,23 +15,33 @@ var style = {font: "14px VT323", fill: "#fff", tabs: 150};
 
 //Gamepad thangs
 var pad;
+var pad1;
+var buttonA;
+var buttonB;
+var buttonX;
+var buttonY;
 var buttonDPadLeft;
 var buttonDPadRight;
+var buttonDPadUp;
+var buttonDPadDown;
 
 //Player related
 var playerTank;
 var playerProj = [];
+var playerScaleMod = [];
 var playerHealth = 10;
 var playerAcceleration = 100;
 var playerMaxSpeed = 200;
-var playerRotationSpeed = 90;
+var playerRotationSpeed = 150;
+var playerLastShot = 0;
 
 //Enemy related
 var enemyObjs = [];
 var enemyScaleMod = [];
 var enemyProj = [];
 var enemyTank;
-var direction = [];
+var enemyMax = 20;
+var enemyMaxScale = 10;
 
 var projectile;
 var projSpeed = 500;
@@ -48,6 +58,7 @@ var attackingEnemy;
 var worldBounds;
 var enemyTankLayer;
 var projectileLayer;
+var playerProjectileLayer;
 var uiLayer;
 var wallsLayer;
 
