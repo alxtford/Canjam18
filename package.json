@@ -1,0 +1,31 @@
+{
+  "name": "zoneofbattle",
+  "version": "1.0.0",
+  "description": "CanJam18",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alxtford/Canjam18"
+  },
+  "keywords": [
+    "node",
+    "phaser",
+    "game",
+    "Node.js",
+    "socket.io"
+  ],
+  "author": "alxtford",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alxtford/Canjam18/issues"
+  },
+  "homepage": "https://github.com/alxtford/Canjam18#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "socket.io": "^2.0.4"
+  }
+}
